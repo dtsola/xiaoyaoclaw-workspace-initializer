@@ -115,7 +115,8 @@ MIT — 随便用，署名可选。
 
 **小遥Claw，把 AI 助手装进自己的电脑。**
 
-介绍页：<https://github.com/dtsola/xiaoyaoclaw-introduction>
+- 🚀 宣传页：<https://www.yuque.com/dtsola/igp1aa/adcicbai2zlem0bz>
+- 📖 介绍页：<https://github.com/dtsola/xiaoyaoclaw-introduction>
 
 ## 关于作者
 
