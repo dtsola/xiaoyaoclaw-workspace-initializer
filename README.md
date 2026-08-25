@@ -1,11 +1,11 @@
-# OpenClaw Workspace Initializer 🏠
+# Xiaoyaoclaw Workspace Initializer 🏠
 
 <p align="center">
-  <img src="./assets/readme/hero.svg" width="100%" alt="OpenClaw Workspace Initializer — give every OpenClaw agent a home: standard directory structure, WORKSPACE.md rules, multi-agent config safety">
+  <img src="./assets/readme/hero.svg" width="100%" alt="Xiaoyaoclaw Workspace Initializer — give every OpenClaw agent a home: standard directory structure, WORKSPACE.md rules, multi-agent config safety">
 </p>
 
 > 给每个 OpenClaw agent 一个「家」：标准目录结构 + WORKSPACE.md 规范 + 多 agent 配置安全。
-> OpenClaw workspace initialization & standardization — the agent home your agents deserve.
+> Xiaoyaoclaw workspace initialization & standardization — the agent home your agents deserve.
 
 ![license](https://img.shields.io/badge/license-MIT-green)
 
