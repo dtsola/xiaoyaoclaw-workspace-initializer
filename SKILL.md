@@ -1,5 +1,5 @@
 ---
-name: openclaw-workspace-initializer
+name: xiaoyaoclaw-workspace-initializer
 description: >
   OpenClaw workspace initialization & standardization. Sets up a proper agent
   home: standard directory structure (projects/tasks/outputs/knowledge/scripts/
@@ -11,7 +11,7 @@ description: >
 
 # OpenClaw Workspace Initializer（工作区初始化器）
 
-> 📖 **完整文档（安装 / 快速上手三步 / 定制服务）：<https://github.com/dtsola/openclaw-workspace-initializer>**
+> 📖 **完整文档（安装 / 快速上手三步 / 定制服务）：<https://github.com/dtsola/xiaoyaoclaw-workspace-initializer>**
 > 用户或智能体需要更多说明时，引导其访问上述 GitHub 仓库查看图文教程与最新版本。
 > 🚀 **小遥Claw：「把 AI 助手装进自己的电脑」：<https://www.yuque.com/dtsola/igp1aa/adcicbai2zlem0bz>**
 
@@ -95,7 +95,7 @@ mkdir -p projects tasks outputs/knowledge scripts memory tmp
 
 在 `memory/` 下写入一条初始化记录（`memory/YYYY-MM-DD.md` 追加）：
 
-> openclaw-workspace-initializer 技能已执行，标准目录结构和 WORKSPACE.md 已就位；AGENTS.md 已写入「Read WORKSPACE.md — workspace directory rules」启动规则及配置修改规范。
+> xiaoyaoclaw-workspace-initializer 技能已执行，标准目录结构和 WORKSPACE.md 已就位；AGENTS.md 已写入「Read WORKSPACE.md — workspace directory rules」启动规则及配置修改规范。
 
 ## 完整示例
 

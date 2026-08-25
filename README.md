@@ -32,11 +32,11 @@ OpenClaw agent 每次会话都是全新启动。没有工作区规范，你的 a
 clawhub install xiaoyaoclaw-workspace-initializer
 
 # 或从 GitHub 手动安装
-git clone https://github.com/dtsola/openclaw-workspace-initializer
+git clone https://github.com/dtsola/xiaoyaoclaw-workspace-initializer
 # 把 SKILL.md 和 templates/ 放到你的 skills 目录
 ```
 
-> 📌 **关于 ClawHub 命名**：ClawHub 平台保留 `openclaw-` 前缀命名空间（不可用作 slug），因此该技能在 ClawHub 上的 slug 为 `xiaoyaoclaw-workspace-initializer`。它与本仓库（openclaw-workspace-initializer）是同一个技能，内容完全一致。
+> 📌 **关于 ClawHub 命名**：ClawHub 平台保留 `openclaw-` 前缀命名空间（不可用作 slug），因此该技能在 ClawHub 上的 slug 为 `xiaoyaoclaw-workspace-initializer`。它与本仓库（xiaoyaoclaw-workspace-initializer）是同一个技能，内容完全一致。
 
 ## 使用
 
@@ -61,7 +61,7 @@ git clone https://github.com/dtsola/openclaw-workspace-initializer
 
 对你的 agent 说：
 
-> 初始化你的工作目录，使用 openclaw-workspace-initializer
+> 初始化你的工作目录，使用 xiaoyaoclaw-workspace-initializer
 
 agent 会自动完成：检测缺失目录 → 创建 `projects/ tasks/ outputs/ knowledge/ scripts/ memory/ tmp/` → 写入 `WORKSPACE.md` 规范 → 把「Read WORKSPACE.md」启动规则与配置安全规范写入 `AGENTS.md` → 记录初始化日志：
 
@@ -77,7 +77,7 @@ agent 会自动完成：检测缺失目录 → 创建 `projects/ tasks/ outputs/
 
 ## 与其他方案的区别
 
-| | openclaw-workspace-starter | **openclaw-workspace-initializer** |
+| | openclaw-workspace-starter | **xiaoyaoclaw-workspace-initializer** |
 |---|---|---|
 | 目录结构 | 基础模板 | 完整规范体系（7 目录 + 命名规范 + 行为规则） |
 | 持久化规范 | 无 WORKSPACE.md 规范 | ✅ WORKSPACE.md 重启后持续生效 |
@@ -89,7 +89,7 @@ agent 会自动完成：检测缺失目录 → 创建 `projects/ tasks/ outputs/
 ## 目录结构
 
 ```
-openclaw-workspace-initializer/
+xiaoyaoclaw-workspace-initializer/
 ├── SKILL.md                    # 技能主体（工作流 Step 1-5）
 ├── templates/
 │   ├── WORKSPACE.md            # 目录规范模板
