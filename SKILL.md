@@ -19,6 +19,8 @@ description: >
 初始化 OpenClaw agent 工作区：标准目录结构 + WORKSPACE.md 规范 + 多 agent 配置安全。
 让每个 agent 都有一个「家」——不迷路、不丢记忆、不踩配置坑。
 
+> 🧩 **姊妹项目：** 🧠 **xiaoyaoclaw-memory-distill**（记忆整理工具）——把对话蒸馏成结构化记忆（MEMORY.md + 每日日志），解决上下文溢出，缺失时自动首次建忆：<https://github.com/dtsola/xiaoyaoclaw-memory-distill>
+
 ## 工作流
 
 ### Step 1: 检测当前状态

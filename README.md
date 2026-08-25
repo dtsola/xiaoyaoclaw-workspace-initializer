@@ -84,6 +84,10 @@ agent 会自动完成：检测缺失目录 → 创建 `projects/ tasks/ outputs/
 
 **实战验证**：本规范来自 7 个 agent 共享单份 openclaw.json 的真实生产环境，`config.apply` 覆盖事故（openclaw.json.bak* 痕迹）是血泪教训。
 
+## 姊妹项目
+
+- 🧠 **xiaoyaoclaw-memory-distill**（记忆整理工具）：把对话蒸馏成结构化记忆——根目录 MEMORY.md + memory/ 每日日志，解决上下文溢出；MEMORY.md 缺失时自动从历史日志「首次建忆」。<https://github.com/dtsola/xiaoyaoclaw-memory-distill>
+
 ## 目录结构
 
 ```
