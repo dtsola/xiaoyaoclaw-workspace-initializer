@@ -1,11 +1,11 @@
-# Xiaoyaoclaw Workspace Initializer 🏠
+# OpenClaw Workspace Initializer 🏠
 
 <p align="center">
-  <img src="./assets/readme/hero.svg" width="100%" alt="Xiaoyaoclaw Workspace Initializer — give every OpenClaw agent a home: standard directory structure, WORKSPACE.md rules, multi-agent config safety">
+  <img src="./assets/readme/hero.svg" width="100%" alt="OpenClaw Workspace Initializer — give every OpenClaw agent a home: standard directory structure, WORKSPACE.md rules, multi-agent config safety">
 </p>
 
 > 给每个 OpenClaw agent 一个「家」：标准目录结构 + WORKSPACE.md 规范 + 多 agent 配置安全。
-> Xiaoyaoclaw workspace initialization & standardization — the agent home your agents deserve.
+> OpenClaw workspace initialization & standardization — the agent home your agents deserve.
 
 ![license](https://img.shields.io/badge/license-MIT-green)
 
@@ -35,8 +35,6 @@ clawhub install xiaoyaoclaw-workspace-initializer
 git clone https://github.com/dtsola/xiaoyaoclaw-workspace-initializer
 # 把 SKILL.md 和 templates/ 放到你的 skills 目录
 ```
-
-> 📌 **关于 ClawHub 命名**：ClawHub 平台保留 `openclaw-` 前缀命名空间（不可用作 slug），因此该技能在 ClawHub 上的 slug 为 `xiaoyaoclaw-workspace-initializer`。它与本仓库（xiaoyaoclaw-workspace-initializer）是同一个技能，内容完全一致。
 
 ## 使用
 
