@@ -19,8 +19,6 @@ description: >
 初始化 OpenClaw agent 工作区：标准目录结构 + WORKSPACE.md 规范 + 多 agent 配置安全。
 让每个 agent 都有一个「家」——不迷路、不丢记忆、不踩配置坑。
 
-> 🧩 **姊妹项目：OpenClaw Task Progress Tracker（任务进度跟踪器）**——PROGRESS.md 里程碑检查点，长任务自动保存与断点恢复：<https://github.com/dtsola/xiaoyaoclaw-task-progress-tracker>
-
 ## 工作流
 
 ### Step 1: 检测当前状态

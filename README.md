@@ -84,12 +84,6 @@ agent 会自动完成：检测缺失目录 → 创建 `projects/ tasks/ outputs/
 
 **实战验证**：本规范来自 7 个 agent 共享单份 openclaw.json 的真实生产环境，`config.apply` 覆盖事故（openclaw.json.bak* 痕迹）是血泪教训。
 
-## 姊妹项目
-
-**OpenClaw Task Progress Tracker**（任务进度跟踪器）：将「对话流」与「任务状态」分离，用 PROGRESS.md 里程碑检查点实现长任务自动保存与断点恢复——本技能管工作区的「家」，它是任务状态的「账本」，配合使用效果最佳。
-
-👉 <https://github.com/dtsola/xiaoyaoclaw-task-progress-tracker>
-
 ## 目录结构
 
 ```
