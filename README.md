@@ -1,5 +1,9 @@
 # OpenClaw Workspace Initializer 🏠
 
+<div align="center">
+  <strong>🇨🇳 中文</strong> | <a href="README.en.md">🌐 English</a>
+</div>
+
 <p align="center">
   <img src="./assets/readme/hero.svg" width="100%" alt="OpenClaw Workspace Initializer — give every OpenClaw agent a home: standard directory structure, WORKSPACE.md rules, multi-agent config safety">
 </p>
@@ -8,6 +12,7 @@
 > OpenClaw workspace initialization & standardization — the agent home your agents deserve.
 
 ![license](https://img.shields.io/badge/license-MIT-green)
+[![ClawHub downloads](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fclawhub.ai%2Fapi%2Fv1%2Fskills%2Fxiaoyaoclaw-workspace-initializer&query=skill.stats.downloads&label=ClawHub%20downloads&color=blue)](https://clawhub.ai/dtsola/skills/xiaoyaoclaw-workspace-initializer)
 
 ## 为什么需要它
 
