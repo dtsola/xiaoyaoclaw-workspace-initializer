@@ -92,6 +92,7 @@ agent 会自动完成：检测缺失目录 → 创建 `projects/ tasks/ outputs/
 ## 姊妹项目
 
 - 🧠 **xiaoyaoclaw-memory-distill**（记忆整理工具）：把对话蒸馏成结构化记忆——根目录 MEMORY.md + memory/ 每日日志，解决上下文溢出；MEMORY.md 缺失时自动从历史日志「首次建忆」。<https://github.com/dtsola/xiaoyaoclaw-memory-distill>
+- 🗂️ **xiaoyaoclaw-task-progress-tracker**（任务进度跟踪器）：目录即容器，PROGRESS.md 即进度——tasks/ 与 projects/ 生命周期管理（状态 + 进度日志 + 文档索引）。<https://github.com/dtsola/xiaoyaoclaw-task-progress-tracker>
 
 ## 目录结构
 
