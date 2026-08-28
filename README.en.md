@@ -91,6 +91,7 @@ Open your agent's workspace directory (Windows Explorer example) — the standar
 
 - 🧠 **xiaoyaoclaw-memory-distill** (memory distill): distill conversations into structured memory — root `MEMORY.md` + `memory/` daily logs, solving context overflow; auto-builds MEMORY.md from history logs when missing. <https://github.com/dtsola/xiaoyaoclaw-memory-distill>
 - 📚 **xiaoyaoclaw-kb-retriever** (knowledge base retriever): local KB retrieval — hierarchical data_structure.md index navigation + progressive retrieval over md/pdf/xlsx, zero dependencies, Windows & macOS ready. <https://github.com/dtsola/xiaoyaoclaw-kb-retriever>
+- 🩹 **xiaoyaoclaw-workspace-auditor**: read-only workspace health check — 5 categories, graded report with fix suggestions, zero-dependency, never modifies files. <https://github.com/dtsola/xiaoyaoclaw-workspace-auditor>
 - 🗂️ **xiaoyaoclaw-task-progress-tracker** (task progress tracker): directory as container, PROGRESS.md as progress — lifecycle management for tasks/ and projects/ (status + progress log + document index). <https://github.com/dtsola/xiaoyaoclaw-task-progress-tracker>
 
 ## Directory structure
