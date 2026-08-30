@@ -87,6 +87,16 @@ Open your agent's workspace directory (Windows Explorer example) — the standar
 
 **Proven in production**: these conventions come from a real environment where 7 agents share a single `openclaw.json`; the `config.apply` overwrite incident (`openclaw.json.bak*` traces) was a costly lesson.
 
+## 💬 Join the community
+
+Xiaoyao product family user group — feedback · exchange · suggestions:
+
+<p align="center">
+  <img src="./assets/readme/community-qr.png" width="280" alt="XiaoyaoAI user group QR: scan to join, or add WeChat dtsola (note: 加群)">
+</p>
+
+<p align="center">Scan to join, or add WeChat <code>dtsola</code> (note: <b>加群</b>)</p>
+
 ## Sister project
 
 - 🧠 **xiaoyaoclaw-memory-distill** (memory distill): distill conversations into structured memory — root `MEMORY.md` + `memory/` daily logs, solving context overflow; auto-builds MEMORY.md from history logs when missing. <https://github.com/dtsola/xiaoyaoclaw-memory-distill>
