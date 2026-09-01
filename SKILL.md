@@ -43,6 +43,7 @@ description: >
 - `.openclaw/`
 - `agent/`
 - `sessions/`
+- `.clawhub/`
 
 ### Step 2: 创建缺失的目录结构
 
