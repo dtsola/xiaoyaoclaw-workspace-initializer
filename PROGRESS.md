@@ -54,3 +54,21 @@ docs:
 - 重要文档：移入 docs/ 或记录路径，追加到 docs 数组（机器可读）+ 本表格（人可读）
 - 项目完结：status 改 archived + 关键结论记入 MEMORY.md（供 memory-distill 蒸馏）
 -->
+
+
+## 2026-09-17 11:3x ClawHub 安全检查 5 条修复 → v1.0.6
+
+**核查**：clawhub skill verify → fail / suspicious（conf high）；aig **T01 技能指令劫持**（error/High）+ **T02 记忆投毒**（error/High）+ skillspector SQP-1 + SQP-2×2（MEDIUM）= **5 条**
+**特点**：本技能核心功能就是「建目录 + 写持久规范」，**不能删功能过关，只能加闸门与边界**
+
+**修复（提交 95de9ec）**
+- **T01**：路径仲裁 → 「**文件放置约定**」，限定「只管本工作区产出的文件放哪」；**技能安全规则/许可/流程优先**；技能必须写工作区外时以技能为准；解决不了的冲突问用户
+- **T02 + SQP-2×2**：Step 4.5 改**默认只提议**（给确切 diff + 明示影响未来会话启动 → 明确同意才写）；AGENTS.md/WORKSPACE.md/SOUL.md/USER.md = **用户资产**；新增 **Step 0 dry-run 确认闸门**；明确不装 cron/守护/状态文件
+- **SQP-1**：新增「激活边界」（仅明确要求初始化/修复 或 确缺目录且当轮落文件）+ 四类排除（已有工程结构/已有别的工作区规范/只是提问/已合规 no-op）
+- 一致化：README 中英 + 双模板同步；.clawhubignore 排除 PROGRESS.md 与 docs/
+
+**验证**：旧口径残留扫描「无」· 结构完整 · 发布包 11 文件 · 无脚本无网络无外部依赖
+**产物**：docs/security-status-2026-09-17.md + docs/evidence/verify-v1.0.5-2026-09-17.json
+
+**待批**：发 v1.0.6 → 复扫核对 5 条清零
+**两个待决（未擅自动）**：① state/skills/ 里的本地已装副本仍是 09-01 旧版，是否同步 ② 本工作区自己的 WORKSPACE.md 是否按新模板更新
