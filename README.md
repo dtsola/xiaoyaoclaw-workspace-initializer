@@ -26,9 +26,9 @@ OpenClaw agent 每次会话都是全新启动。没有工作区规范，你的 a
 ## 特性
 
 - 🗂️ 标准目录结构：`projects/` `tasks/` `outputs/` `knowledge/` `scripts/` `memory/` `tmp/`
-- 📜 WORKSPACE.md 持久化规范：重启后依然生效的目录管理规则
+- 📜 WORKSPACE.md 规范：重启后依然生效的目录管理规则（**用户资产** —— 内容先给你过目，已存在则不覆盖）
 - 🛡️ 多 agent 配置安全：只用 `config.patch`，禁止 `config.apply` 覆盖他人修改
-- ⚖️ **技能路径冲突仲裁**：其他技能若约定与 WORKSPACE.md 冲突的输出路径，一律以工作区规范为准，由执行 agent 完成路径翻译（如 `~/Downloads/research/<topic>` → `tasks/<topic>/`）——装再多技能也不乱
+- ⚖️ **文件放置统一**：其他技能约定与 WORKSPACE.md 冲突的**输出路径**，由执行 agent 映射进工作区并注明差异（如 `~/Downloads/research/<topic>` → `tasks/<topic>/`）——但技能自身的安全规则、许可与流程优先，不覆盖、不要求技能绕过；换位置解决不了的冲突会先问你
 
 ## 安装
 
@@ -66,7 +66,7 @@ git clone https://github.com/dtsola/xiaoyaoclaw-workspace-initializer
 
 > 初始化你的工作目录，使用 xiaoyaoclaw-workspace-initializer
 
-agent 会自动完成：检测缺失目录 → 创建 `projects/ tasks/ outputs/ knowledge/ scripts/ memory/ tmp/` → 写入 `WORKSPACE.md` 规范 → 把「Read WORKSPACE.md」启动规则与配置安全规范写入 `AGENTS.md` → 记录初始化日志：
+agent 会**先给差异清单等你确认**（将创建什么 / 不会动什么），确认后再执行：建缺失目录 → 写入 `WORKSPACE.md` → 把「Read WORKSPACE.md」启动规则与配置安全规范作为**建议补丁**给你过目（`AGENTS.md` 影响未来每次会话启动，需单独同意）→ 记录初始化日志：
 
 ![Step 2 - 执行初始化](assets/quickstart-step2-init-workspace.png)
 

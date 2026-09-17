@@ -1,5 +1,7 @@
 ## 配置修改规范（多 agent 共享配置安全）
 
+> 本段是**待用户批准的提议文本**：把它写进 `AGENTS.md` 会改变未来会话的配置操作方式，因此需先给 diff、经用户同意再落地。
+
 多 agent 共享同一份 openclaw.json（所有 agent 定义都在 agents.list 里），互相覆盖风险高：
 
 - ✅ 改配置一律用 gateway `config.patch`（部分合并，只动指定字段）

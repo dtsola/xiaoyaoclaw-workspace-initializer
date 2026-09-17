@@ -1,0 +1,978 @@
+{
+  "schema": "clawhub.skill.verify.v1",
+  "ok": false,
+  "decision": "fail",
+  "reasons": [
+    "security.status_not_clean"
+  ],
+  "slug": "xiaoyaoclaw-workspace-initializer",
+  "displayName": "Openclaw Workspace Initializer",
+  "pageUrl": "https://clawhub.ai/dtsola/skills/xiaoyaoclaw-workspace-initializer",
+  "publisherHandle": "dtsola",
+  "publisherDisplayName": "dtsola",
+  "publisherProfileUrl": "https://clawhub.ai/dtsola",
+  "version": "1.0.5",
+  "resolvedFrom": "latest",
+  "tag": null,
+  "createdAt": 1788252977083,
+  "card": {
+    "available": true,
+    "path": "skill-card.md",
+    "url": "https://wry-manatee-359.convex.site/api/v1/skills/xiaoyaoclaw-workspace-initializer/card?ownerHandle=dtsola&version=1.0.5",
+    "sha256": "cd3b027cc91ff6c396eadcfebc4c9231be20a6518dd4af02387eae49609392d0",
+    "size": 2504,
+    "contentType": "text/markdown; charset=utf-8"
+  },
+  "artifact": {
+    "sourceFingerprint": "f3125d0d245eb57fcf21df82f31c9995802c2148ce871853c5a40360fe5a09b0",
+    "bundleFingerprints": [
+      "5d869ce4e3fd05a730a53a3c2657ff78286a7c016a7a3929bcf1daed55670f2a"
+    ],
+    "files": [
+      {
+        "path": "templates/AGENTS-config-safety.md",
+        "size": 609,
+        "sha256": "0eae21510b14f9cbd4830766c2e2f3b72d1fb481c2638e02253f93eed51f0271",
+        "contentType": "application/octet-stream"
+      },
+      {
+        "path": "templates/WORKSPACE.md",
+        "size": 2164,
+        "sha256": "6819fa70a6d729b9704846a2ef9bb3aeb14a3034967d5993a894dfc8c3b1eadc",
+        "contentType": "application/octet-stream"
+      },
+      {
+        "path": "SKILL.md",
+        "size": 6222,
+        "sha256": "fc5b2be02b1a9960a9872c7b4e13afcd3d12ebf03f18f05746d4e065cf54ec34",
+        "contentType": "application/octet-stream"
+      }
+    ]
+  },
+  "provenance": {
+    "source": "unavailable",
+    "reason": "No server-resolved GitHub import provenance is stored for this version."
+  },
+  "security": {
+    "status": "suspicious",
+    "passed": false,
+    "rawStatus": "suspicious",
+    "verdict": "suspicious",
+    "confidence": "high",
+    "summary": "This skill is a workspace initializer, but it can persistently change future agent behavior and override other skills' file-placement rules.",
+    "model": null,
+    "checkedAt": 1789556631640,
+    "scannerReports": {
+      "aig": {
+        "version": "2.1.0",
+        "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/main/Schemata/sarif-schema-2.1.0.json",
+        "runs": [
+          {
+            "tool": {
+              "driver": {
+                "name": "aig-skill-scan",
+                "version": "0.2.1",
+                "informationUri": "https://github.com/Tencent/AI-Infra-Guard",
+                "rules": [
+                  {
+                    "id": "T01",
+                    "name": "Skill Instruction Hijacking",
+                    "shortDescription": {
+                      "text": "Alters the agent's current session goals or safety constraints when the skill is loaded"
+                    }
+                  },
+                  {
+                    "id": "T02",
+                    "name": "Agent Memory Poisoning",
+                    "shortDescription": {
+                      "text": "Writes attacker-controlled rules into persistent memory so they continue to affect future sessions"
+                    }
+                  },
+                  {
+                    "id": "T03",
+                    "name": "Remote Payload Retrieval and Execution",
+                    "shortDescription": {
+                      "text": "Fetches code from an external URL, allowing the effective payload to change after skill review"
+                    }
+                  },
+                  {
+                    "id": "T04",
+                    "name": "Embedded Malicious Code",
+                    "shortDescription": {
+                      "text": "Ships malicious scripts inside the skill package and executes them locally when invoked"
+                    }
+                  },
+                  {
+                    "id": "T05",
+                    "name": "Unauthorized Access and Privilege Escalation",
+                    "shortDescription": {
+                      "text": "Breaks least-privilege boundaries by obtaining permissions beyond the task's legitimate needs"
+                    }
+                  },
+                  {
+                    "id": "T06",
+                    "name": "System Persistence",
+                    "shortDescription": {
+                      "text": "Installs cross-session backdoors, hooks, services, or scheduled tasks that survive the skill run"
+                    }
+                  },
+                  {
+                    "id": "T07",
+                    "name": "Tool Hijacking and Spoofing",
+                    "shortDescription": {
+                      "text": "Modifies, wraps, spoofs, or replaces tools so legitimate-looking calls execute attacker logic"
+                    }
+                  },
+                  {
+                    "id": "T08",
+                    "name": "Insecure Dependencies",
+                    "shortDescription": {
+                      "text": "Introduces malicious packages or components through dependency confusion, typosquatting, or unsafe sources"
+                    }
+                  },
+                  {
+                    "id": "T09",
+                    "name": "Insecure Skill Coding Practices",
+                    "shortDescription": {
+                      "text": "Exposes exploitable flaws such as hardcoded secrets, command injection, plaintext sensitive data, or unsafe temp files"
+                    }
+                  },
+                  {
+                    "id": "other",
+                    "name": "Other Risk",
+                    "shortDescription": {
+                      "text": "Security issues not covered by the T01-T09 classification"
+                    }
+                  }
+                ]
+              }
+            },
+            "results": [
+              {
+                "ruleId": "T01",
+                "level": "error",
+                "message": {
+                  "text": "Workspace Rules Override Conflicting Skill Instructions"
+                },
+                "locations": [
+                  {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "SKILL.md"
+                      },
+                      "region": {
+                        "startLine": 60,
+                        "endLine": 80
+                      }
+                    }
+                  }
+                ],
+                "partialFingerprints": {
+                  "primaryLocationLineHash": "b0f3c41fd666c402"
+                },
+                "properties": {
+                  "description": "## Vulnerability Details\n  **File Location**: `SKILL.md:60-80`; `templates/WORKSPACE.md:27-36`  \n  **Vulnerability Type**: T01: Skill Instruction Hijacking  \n  **Risk Level**: High\n\n  ### Complete Relevant Code Snippet\n\n  The following is an English rendering of the complete relevant rules from `SKILL.md:60-80`:\n\n  ```markdown\n  ## Path Conflict Arbitration\n\n  When a skill's conventions conflict with WORKSPACE.md:\n\n  1. WORKSPACE.md is the sole path authority — in a conflict, always follow\n     the workspace directory rules.\n  2. The executing agent is responsible for translating an external path into\n     a workspace path.\n  3. The agent must report the difference to the user.\n\n  Design principle: Skills are only responsible for what to do; paths are\n  controlled by the workspace.\n\n  ### Step 4: Guide New Agents\n\n  Iron Rule #1 — Feedback first: Whether a task succeeds or fails, the agent\n  must report the result. The agent must not independently decide the next step.\n\n  Iron Rule #2 — Follow workspace rules: On every subsequent startup, first\n  read the root WORKSPACE.md and use its directory and naming rules.\n\n  Iron Rule #3 — Configuration safety: Configuration changes must use\n  config.patch; config.apply is prohibited.\n  ```\n\n  The associated persistent rule in `templates/WORKSPACE.md:27-36` translates to:\n\n  ```markdown\n  1. The agent must report success or failure and must not independently decide\n     the next step.\n  2. New tasks must first be placed in tasks/ or projects/.\n  3. Generated images must be placed under outputs/images/.\n  4. One-time scripts must be placed in the corresponding task directory.\n  5. Downloaded files must first be placed in tmp/.\n  6. The workspace root may contain only system configuration Markdown files.\n  7. Task completion must be recorded in memory/ after user confirmation.\n  8. tmp/ may be cleaned only when requested by the user.\n  9. System directories must not be modified or deleted manually.\n  10. If another skill's output-path convention conflicts with this file, this\n      file always takes precedence.\n  ```\n\n  ### Technical Analysis\n\n  The skill establishes its own workspace policy as the unconditional authority over conflicting skill instructions. It does not limit that precedence to files generated by this initializer. Instead, it directs the executing agent to reinterpret other skills' output paths and imposes additional behavioral restrictions, including restrictions on how the agent may determine subsequent actions.\n\n  This constitutes instruction hijacking because loading or applying the skill changes the agent's behavior beyond the immediate directory-initialization task. A later skill can request a specific output location for functional or security reasons, but the injected workspace policy instructs the agent to disregard that location and substitute one selected under this skill's policy.\n\n  No arbitrary code execution is required. The exploitation mechanism operates through trusted natural-language instruction surfaces consumed by the agent.\n\n  ### Attack Path\n\n  1. A user invokes the workspace initializer for an empty or incomplete workspace.\n  2. The skill installs `templates/WORKSPACE.md` at the workspace root.\n  3. The installed file declares itself authoritative over conflicting path instructions.\n  4. The same or a later agent reads the workspace policy.\n  5. When another skill specifies an incompatible destination, the agent disregards that destination and translates it to one allowed by `WORKSPACE.md`.\n  6. Files and task state are consequently redirected according to this skill's policy rather than the invoked skill's reviewed behavior.\n\n  ### Impact Assessment\n\n  The policy can control file destinations and task organization for every operation performed by an agent that accepts the workspace instructions. It can also constrain workflow decisions and supersede other installed skills' path requirements.\n\n  The effective privileges are limited to the privileges already available to the executing agent. The reviewed files do not independently escalate operating-system permissions, execute remote payloads, or access credentials. Nevertheless, an agent with broad filesystem access could apply the hijacked instructions across the full writable workspace.",
+                  "severity": "High"
+                },
+                "fixes": [
+                  {
+                    "description": {
+                      "text": "## Remediation Suggestions\n\n  1. Remove the rule declaring `WORKSPACE.md` the sole authority over conflicting skills.\n  2. Scope workspace conventions strictly to artifacts produced by this initializer.\n  3. Preserve explicit destinations supplied by the user or another invoked skill unless the user approves a change.\n  4. Present each proposed path translation to the user before writing files.\n  5. Replace mandatory behavioral language with non-authoritative recommendations.\n  6. Document that system, user, and task-specific instructions take precedence over workspace organization preferences.\n  7. Add validation preventing the template from overriding security-sensitive destinations or operational requirements."
+                    }
+                  }
+                ]
+              },
+              {
+                "ruleId": "T02",
+                "level": "error",
+                "message": {
+                  "text": "Persistent Agent Behavior Modification Through WORKSPACE.md and AGENTS.md"
+                },
+                "locations": [
+                  {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "SKILL.md"
+                      },
+                      "region": {
+                        "startLine": 82,
+                        "endLine": 107
+                      }
+                    }
+                  }
+                ],
+                "partialFingerprints": {
+                  "primaryLocationLineHash": "cbd3e0b7221109c7"
+                },
+                "properties": {
+                  "description": "## Vulnerability Details\n  **File Location**: `SKILL.md:82-107`; `templates/WORKSPACE.md:1-3,27-36`; `templates/AGENTS-config-safety.md:1-8`  \n  **Vulnerability Type**: T02: Agent Memory Poisoning  \n  **Risk Level**: High\n\n  ### Complete Relevant Code Snippet\n\n  The following is an English rendering of the complete relevant procedure from `SKILL.md:82-107`:\n\n  ```markdown\n  ### Step 4.5: Persist Workspace Rules into AGENTS.md\n\n  If AGENTS.md exists in the workspace root, perform the following persistence\n  operations. If it does not exist, skip it or create it with the workspace\n  template.\n\n  1. Startup read rule: Ensure the Session Startup section of AGENTS.md contains:\n\n     Read WORKSPACE.md — workspace directory rules\n\n     The agent must read WORKSPACE.md before starting work in every session.\n\n  2. Configuration rules: If the configuration modification rules are absent,\n     append the contents of templates/AGENTS-config-safety.md.\n\n  The file must be updated using Python 3 or a file-editing tool with UTF-8.\n\n  ### Step 5: Record Initialization Log\n\n  Append a record under memory/YYYY-MM-DD.md stating that the initializer ran\n  and that AGENTS.md received the startup rule and configuration rules.\n  ```\n\n  The content inserted from `templates/AGENTS-config-safety.md:1-8` translates to:\n\n  ```markdown\n  ## Configuration Modification Rules\n\n  Multiple agents share the same openclaw.json:\n\n  - Configuration changes must use gateway config.patch.\n  - gateway config.apply is prohibited.\n  - config.apply can overwrite modifications made by other agents.\n  - Exception: config.apply may be considered only for initialization or a\n    complete migration.\n  ```\n\n  The startup target, `templates/WORKSPACE.md:1-3`, translates to:\n\n  ```markdown\n  # WORKSPACE.md - Directory Management Rules\n\n  Do not place arbitrary files in the workspace root. The agent must read this\n  file whenever it starts.\n  ```\n\n  ### Technical Analysis\n\n  The initializer intentionally writes behavioral instructions into persistent files that are expected to be loaded by future agent sessions. It then modifies `AGENTS.md`, an agent instruction surface, so that every later session reads the skill-controlled `WORKSPACE.md` before performing work.\n\n  This creates a durable instruction chain:\n\n  ```text\n  AGENTS.md startup rule\n      → automatic loading of WORKSPACE.md\n      → continued enforcement of skill-controlled behavior\n  ```\n\n  The behavior survives completion of the original initialization task and does not depend on the skill remaining active or present in a future agent's loaded skill list. Appending another template to `AGENTS.md` also establishes a general mechanism through which package-controlled instructions become persistent agent policy.\n\n  Although the reviewed template currently contains configuration-safety guidance rather than executable malware, the persistence mechanism itself allows skill-authored rules to influence subsequent sessions without per-session user review.\n\n  ### Attack Path\n\n  1. The user invokes the initializer in a workspace containing `AGENTS.md`, or the workflow creates that file.\n  2. The skill writes `WORKSPACE.md` from its bundled template.\n  3. It edits `AGENTS.md` to require `WORKSPACE.md` to be read during every session startup.\n  4. It appends the bundled configuration-policy template if the policy is not already present.\n  5. The original initialization task ends.\n  6. A new agent session loads `AGENTS.md`.\n  7. The startup rule causes the new agent to load and follow `WORKSPACE.md`.\n  8. The skill's path, workflow, and configuration policies continue affecting future tasks even if the initializer is no longer invoked.\n\n  ### Impact Assessment\n\n  The modification can persistently influence all later agents that trust the workspace's `AGENTS.md`. Its scope includes file placement, task organization, configuration-operation selection, reporting behavior, and resolution of conflicts with other skills.\n\n  The persistence is workspace-scoped rather than an operating-system startup backdoor. The reviewed project does not install services, scheduled tasks, binaries, or shell hooks. It also does not demonstrate privilege escalation. Its effective authority is the existing authority of future agents that consume the poisoned instruction files; where those agents have configuration or filesystem tools, the persisted rules can influence use of those tools throughout the writable workspace.",
+                  "severity": "High"
+                },
+                "fixes": [
+                  {
+                    "description": {
+                      "text": "## Remediation Suggestions\n\n  1. Do not create or modify `AGENTS.md` automatically.\n  2. Require explicit, informed user approval before installing any cross-session agent instruction.\n  3. Display the exact proposed additions and destination files before writing them.\n  4. Keep initialization guidance scoped to the current invocation by default.\n  5. If persistence is explicitly requested, insert rules in a clearly delimited block containing the skill name, version, installation date, and removal instructions.\n  6. Create a backup and use an atomic update when changing an existing instruction file.\n  7. Provide an uninstall operation that removes only the block installed by this skill.\n  8. Do not create `AGENTS.md` implicitly when it is absent.\n  9. Treat existing user-managed startup instructions as authoritative and never silently append policy to them.\n  10. Record whether each modification was proposed, approved, written, skipped, or reverted."
+                    }
+                  }
+                ]
+              }
+            ],
+            "properties": {
+              "securityScore": 20,
+              "primaryLanguage": "Markdown",
+              "llm": "gpt-5.6",
+              "startTime": 1789556518.226346,
+              "endTime": 1789556598.6910548
+            }
+          }
+        ]
+      },
+      "skillspector": {
+        "skill": {
+          "name": "xiaoyaoclaw-workspace-initializer",
+          "source": "/tmp/clawhub-codex-scan-v57dvdj4hxgq5668a1z4sm1hfs8eh4ez-vsnAol/clawscan-skillspector-649796079/artifact",
+          "scanned_at": "2026-09-16T11:01:27.693681+00:00"
+        },
+        "risk_assessment": {
+          "score": 23,
+          "severity": "MEDIUM",
+          "recommendation": "CAUTION",
+          "max_issue_severity": "MEDIUM"
+        },
+        "components": [
+          {
+            "path": "SKILL.md",
+            "type": "markdown",
+            "lines": 133,
+            "executable": false,
+            "size_bytes": 6222,
+            "source_url": null,
+            "source_identity": null,
+            "source_digest": null
+          },
+          {
+            "path": "templates/AGENTS-config-safety.md",
+            "type": "markdown",
+            "lines": 8,
+            "executable": false,
+            "size_bytes": 609,
+            "source_url": null,
+            "source_identity": null,
+            "source_digest": null
+          },
+          {
+            "path": "templates/WORKSPACE.md",
+            "type": "markdown",
+            "lines": 38,
+            "executable": false,
+            "size_bytes": 2164,
+            "source_url": null,
+            "source_identity": null,
+            "source_digest": null
+          }
+        ],
+        "structured_summaries": [],
+        "issues": [
+          {
+            "id": "SQP-1",
+            "finding_id": "finding-bddd52a48bf74fa18880463c0f416940",
+            "category": null,
+            "pattern": null,
+            "severity": "MEDIUM",
+            "confidence": 0.9,
+            "location": {
+              "file": "SKILL.md",
+              "start_line": 4,
+              "end_line": 9
+            },
+            "finding": null,
+            "explanation": "The activation criteria are broad enough that an agent could run this initializer in a non-empty or already-managed repository and make unsolicited structural changes. Because the skill creates directories and may later modify governance files, weak scoping increases the chance of unintended file-system and metadata changes outside the user's actual intent.",
+            "remediation": "Narrow the activation conditions with explicit exclusions, such as: only run in a confirmed workspace root, only when the user requests initialization/repair, and do not run if an existing project structure or alternate workspace convention is detected without user confirmation. Add a preflight check that summarizes proposed changes and requires confirmation before writing files.",
+            "code_snippet": null,
+            "intent": null,
+            "tags": [],
+            "evidence": {},
+            "match_fingerprint": null,
+            "occurrences": [
+              {
+                "file": "SKILL.md",
+                "start_line": 4,
+                "end_line": 9
+              }
+            ]
+          },
+          {
+            "id": "SQP-2",
+            "finding_id": "finding-6ee8ec26306b4389b0997629c295b2d9",
+            "category": null,
+            "pattern": null,
+            "severity": "MEDIUM",
+            "confidence": 0.93,
+            "location": {
+              "file": "SKILL.md",
+              "start_line": 48,
+              "end_line": 60
+            },
+            "finding": null,
+            "explanation": "This section directs the agent to create directories and write WORKSPACE.md, but it does not require a clear user-facing notice or confirmation before modifying the workspace. In practice, that can cause silent changes to repository layout and policy files, which is risky in shared, versioned, or non-empty workspaces.",
+            "remediation": "Add an explicit warning and confirmation step before any write action: show which directories/files are missing, what will be created, and whether existing files will be touched. Provide a dry-run mode by default and require user approval before creating directories or writing WORKSPACE.md.",
+            "code_snippet": null,
+            "intent": null,
+            "tags": [],
+            "evidence": {},
+            "match_fingerprint": null,
+            "occurrences": [
+              {
+                "file": "SKILL.md",
+                "start_line": 48,
+                "end_line": 60
+              }
+            ]
+          },
+          {
+            "id": "SQP-2",
+            "finding_id": "finding-00bf70110d064cdb8bafa69b68471e14",
+            "category": null,
+            "pattern": null,
+            "severity": "MEDIUM",
+            "confidence": 0.95,
+            "location": {
+              "file": "SKILL.md",
+              "start_line": 84,
+              "end_line": 102
+            },
+            "finding": null,
+            "explanation": "The skill instructs the agent to persist rules into AGENTS.md and append to memory logs, which modifies existing project metadata and behavioral control files. Because AGENTS.md can influence future agent behavior, unprompted edits create a persistent cross-session effect that is more sensitive than ordinary output generation, especially in multi-agent or shared repositories.",
+            "remediation": "Treat AGENTS.md and other persistent metadata files as protected resources: require explicit user authorization before editing them, present a diff, and avoid appending policy text automatically. Limit memory log writes to a clearly scoped workspace-owned file, and only after confirmation when the repository already contains existing governance or documentation files.",
+            "code_snippet": null,
+            "intent": null,
+            "tags": [],
+            "evidence": {},
+            "match_fingerprint": null,
+            "occurrences": [
+              {
+                "file": "SKILL.md",
+                "start_line": 84,
+                "end_line": 102
+              }
+            ]
+          }
+        ],
+        "suppressed_count": 0,
+        "suppressed": [],
+        "metadata": {
+          "has_executable_scripts": false,
+          "skillspector_version": "2.11.2",
+          "llm_requested": true,
+          "llm_available": true,
+          "meta_analysis_applied": true,
+          "inference_usage": [
+            {
+              "node": "semantic_developer_intent",
+              "request_kind": "structured_output",
+              "provider": "openai",
+              "model": "gpt-5.4-2026-03-05",
+              "model_source": "provider_response",
+              "usage_source": "provider_response",
+              "prompt_tokens": 1580,
+              "completion_tokens": 14,
+              "cached_tokens": 0,
+              "reasoning_tokens": 0,
+              "total_tokens": 1594
+            },
+            {
+              "node": "semantic_developer_intent",
+              "request_kind": "structured_output",
+              "provider": "openai",
+              "model": "gpt-5.4-2026-03-05",
+              "model_source": "provider_response",
+              "usage_source": "provider_response",
+              "prompt_tokens": 3530,
+              "completion_tokens": 14,
+              "cached_tokens": 0,
+              "reasoning_tokens": 0,
+              "total_tokens": 3544
+            },
+            {
+              "node": "semantic_developer_intent",
+              "request_kind": "structured_output",
+              "provider": "openai",
+              "model": "gpt-5.4-2026-03-05",
+              "model_source": "provider_response",
+              "usage_source": "provider_response",
+              "prompt_tokens": 2173,
+              "completion_tokens": 14,
+              "cached_tokens": 0,
+              "reasoning_tokens": 0,
+              "total_tokens": 2187
+            },
+            {
+              "node": "semantic_quality_policy",
+              "request_kind": "structured_output",
+              "provider": "openai",
+              "model": "gpt-5.4-2026-03-05",
+              "model_source": "provider_response",
+              "usage_source": "provider_response",
+              "prompt_tokens": 1570,
+              "completion_tokens": 14,
+              "cached_tokens": 0,
+              "reasoning_tokens": 0,
+              "total_tokens": 1584
+            },
+            {
+              "node": "semantic_quality_policy",
+              "request_kind": "structured_output",
+              "provider": "openai",
+              "model": "gpt-5.4-2026-03-05",
+              "model_source": "provider_response",
+              "usage_source": "provider_response",
+              "prompt_tokens": 2163,
+              "completion_tokens": 14,
+              "cached_tokens": 0,
+              "reasoning_tokens": 0,
+              "total_tokens": 2177
+            },
+            {
+              "node": "semantic_quality_policy",
+              "request_kind": "structured_output",
+              "provider": "openai",
+              "model": "gpt-5.4-2026-03-05",
+              "model_source": "provider_response",
+              "usage_source": "provider_response",
+              "prompt_tokens": 3520,
+              "completion_tokens": 484,
+              "cached_tokens": 0,
+              "reasoning_tokens": 0,
+              "total_tokens": 4004
+            },
+            {
+              "node": "semantic_security_discovery",
+              "request_kind": "structured_output",
+              "provider": "openai",
+              "model": "gpt-5.4-2026-03-05",
+              "model_source": "provider_response",
+              "usage_source": "provider_response",
+              "prompt_tokens": 3052,
+              "completion_tokens": 14,
+              "cached_tokens": 0,
+              "reasoning_tokens": 0,
+              "total_tokens": 3066
+            },
+            {
+              "node": "semantic_security_discovery",
+              "request_kind": "structured_output",
+              "provider": "openai",
+              "model": "gpt-5.4-2026-03-05",
+              "model_source": "provider_response",
+              "usage_source": "provider_response",
+              "prompt_tokens": 1102,
+              "completion_tokens": 14,
+              "cached_tokens": 0,
+              "reasoning_tokens": 0,
+              "total_tokens": 1116
+            },
+            {
+              "node": "semantic_security_discovery",
+              "request_kind": "structured_output",
+              "provider": "openai",
+              "model": "gpt-5.4-2026-03-05",
+              "model_source": "provider_response",
+              "usage_source": "provider_response",
+              "prompt_tokens": 1695,
+              "completion_tokens": 14,
+              "cached_tokens": 0,
+              "reasoning_tokens": 0,
+              "total_tokens": 1709
+            },
+            {
+              "node": "meta_analyzer",
+              "request_kind": "structured_output",
+              "provider": "openai",
+              "model": "gpt-5.4-2026-03-05",
+              "model_source": "provider_response",
+              "usage_source": "provider_response",
+              "prompt_tokens": 2854,
+              "completion_tokens": 586,
+              "cached_tokens": 0,
+              "reasoning_tokens": 0,
+              "total_tokens": 3440
+            }
+          ],
+          "llm_calls_attempted": 4,
+          "llm_calls_succeeded": 4
+        },
+        "execution_successful": true,
+        "analysis_completeness": {
+          "total_components": 3,
+          "scanned_components": 3,
+          "coverage_percent": 100,
+          "is_complete": false,
+          "status": "partial",
+          "execution_successful": true,
+          "fully_inspected_files": 3,
+          "partially_inspected_files": 0,
+          "entirely_uninspected_files": 0,
+          "ledger_exceptions": [
+            {
+              "outcome": "partial",
+              "phase": "reference_resolution",
+              "reason_code": "reference_unresolved",
+              "message": "A local path-like reference could not be resolved unambiguously.",
+              "path": "SKILL.md",
+              "start_line": 6,
+              "end_line": 6,
+              "fatal": false
+            },
+            {
+              "outcome": "partial",
+              "phase": "reference_resolution",
+              "reason_code": "reference_unresolved",
+              "message": "A local path-like reference could not be resolved unambiguously.",
+              "path": "SKILL.md",
+              "start_line": 7,
+              "end_line": 7,
+              "fatal": false
+            },
+            {
+              "outcome": "partial",
+              "phase": "reference_resolution",
+              "reason_code": "reference_unresolved",
+              "message": "A local path-like reference could not be resolved unambiguously.",
+              "path": "SKILL.md",
+              "start_line": 53,
+              "end_line": 53,
+              "fatal": false
+            },
+            {
+              "outcome": "partial",
+              "phase": "reference_resolution",
+              "reason_code": "reference_unresolved",
+              "message": "A local path-like reference could not be resolved unambiguously.",
+              "path": "SKILL.md",
+              "start_line": 82,
+              "end_line": 82,
+              "fatal": false
+            },
+            {
+              "outcome": "partial",
+              "phase": "reference_resolution",
+              "reason_code": "reference_unresolved",
+              "message": "A local path-like reference could not be resolved unambiguously.",
+              "path": "SKILL.md",
+              "start_line": 86,
+              "end_line": 86,
+              "fatal": false
+            },
+            {
+              "outcome": "partial",
+              "phase": "reference_resolution",
+              "reason_code": "reference_unresolved",
+              "message": "A local path-like reference could not be resolved unambiguously.",
+              "path": "SKILL.md",
+              "start_line": 100,
+              "end_line": 100,
+              "fatal": false
+            }
+          ],
+          "scope_exclusions": [],
+          "analyzer_statuses": [
+            {
+              "analyzer_id": "artifact_integrity",
+              "status": "completed",
+              "planned_work": 3,
+              "completed": 3,
+              "partial": 0,
+              "skipped": 0,
+              "failed": 0,
+              "unaccounted": 0
+            },
+            {
+              "analyzer_id": "behavioral_ast",
+              "status": "not_applicable",
+              "planned_work": 0,
+              "completed": 0,
+              "partial": 0,
+              "skipped": 0,
+              "failed": 0,
+              "unaccounted": 0,
+              "reason_code": "no_applicable_files",
+              "message": "No files matched this analyzer's applicability contract."
+            },
+            {
+              "analyzer_id": "behavioral_taint_tracking",
+              "status": "not_applicable",
+              "planned_work": 0,
+              "completed": 0,
+              "partial": 0,
+              "skipped": 0,
+              "failed": 0,
+              "unaccounted": 0,
+              "reason_code": "no_applicable_files",
+              "message": "No files matched this analyzer's applicability contract."
+            },
+            {
+              "analyzer_id": "bundled_execution_surface",
+              "status": "not_applicable",
+              "planned_work": 0,
+              "completed": 0,
+              "partial": 0,
+              "skipped": 0,
+              "failed": 0,
+              "unaccounted": 0,
+              "reason_code": "no_applicable_files",
+              "message": "No files matched this analyzer's applicability contract."
+            },
+            {
+              "analyzer_id": "mcp_least_privilege",
+              "status": "not_applicable",
+              "planned_work": 0,
+              "completed": 0,
+              "partial": 0,
+              "skipped": 0,
+              "failed": 0,
+              "unaccounted": 0,
+              "reason_code": "no_applicable_files",
+              "message": "No files matched this analyzer's applicability contract."
+            },
+            {
+              "analyzer_id": "mcp_rug_pull",
+              "status": "completed",
+              "planned_work": 3,
+              "completed": 3,
+              "partial": 0,
+              "skipped": 0,
+              "failed": 0,
+              "unaccounted": 0
+            },
+            {
+              "analyzer_id": "mcp_tool_poisoning",
+              "status": "completed",
+              "planned_work": 1,
+              "completed": 1,
+              "partial": 0,
+              "skipped": 0,
+              "failed": 0,
+              "unaccounted": 0
+            },
+            {
+              "analyzer_id": "meta_analyzer",
+              "status": "completed",
+              "planned_work": 1,
+              "completed": 1,
+              "partial": 0,
+              "skipped": 0,
+              "failed": 0,
+              "unaccounted": 0
+            },
+            {
+              "analyzer_id": "semantic_developer_intent",
+              "status": "completed",
+              "planned_work": 3,
+              "completed": 3,
+              "partial": 0,
+              "skipped": 0,
+              "failed": 0,
+              "unaccounted": 0
+            },
+            {
+              "analyzer_id": "semantic_quality_policy",
+              "status": "completed",
+              "planned_work": 3,
+              "completed": 3,
+              "partial": 0,
+              "skipped": 0,
+              "failed": 0,
+              "unaccounted": 0
+            },
+            {
+              "analyzer_id": "semantic_security_discovery",
+              "status": "completed",
+              "planned_work": 3,
+              "completed": 3,
+              "partial": 0,
+              "skipped": 0,
+              "failed": 0,
+              "unaccounted": 0
+            },
+            {
+              "analyzer_id": "static_patterns_agent_snooping",
+              "status": "completed",
+              "planned_work": 3,
+              "completed": 3,
+              "partial": 0,
+              "skipped": 0,
+              "failed": 0,
+              "unaccounted": 0
+            },
+            {
+              "analyzer_id": "static_patterns_anti_refusal",
+              "status": "completed",
+              "planned_work": 3,
+              "completed": 3,
+              "partial": 0,
+              "skipped": 0,
+              "failed": 0,
+              "unaccounted": 0
+            },
+            {
+              "analyzer_id": "static_patterns_data_exfiltration",
+              "status": "completed",
+              "planned_work": 3,
+              "completed": 3,
+              "partial": 0,
+              "skipped": 0,
+              "failed": 0,
+              "unaccounted": 0
+            },
+            {
+              "analyzer_id": "static_patterns_deserialization",
+              "status": "completed",
+              "planned_work": 3,
+              "completed": 3,
+              "partial": 0,
+              "skipped": 0,
+              "failed": 0,
+              "unaccounted": 0
+            },
+            {
+              "analyzer_id": "static_patterns_excessive_agency",
+              "status": "completed",
+              "planned_work": 3,
+              "completed": 3,
+              "partial": 0,
+              "skipped": 0,
+              "failed": 0,
+              "unaccounted": 0
+            },
+            {
+              "analyzer_id": "static_patterns_harmful_content",
+              "status": "completed",
+              "planned_work": 3,
+              "completed": 3,
+              "partial": 0,
+              "skipped": 0,
+              "failed": 0,
+              "unaccounted": 0
+            },
+            {
+              "analyzer_id": "static_patterns_memory_poisoning",
+              "status": "completed",
+              "planned_work": 3,
+              "completed": 3,
+              "partial": 0,
+              "skipped": 0,
+              "failed": 0,
+              "unaccounted": 0
+            },
+            {
+              "analyzer_id": "static_patterns_output_handling",
+              "status": "completed",
+              "planned_work": 3,
+              "completed": 3,
+              "partial": 0,
+              "skipped": 0,
+              "failed": 0,
+              "unaccounted": 0
+            },
+            {
+              "analyzer_id": "static_patterns_privilege_escalation",
+              "status": "completed",
+              "planned_work": 3,
+              "completed": 3,
+              "partial": 0,
+              "skipped": 0,
+              "failed": 0,
+              "unaccounted": 0
+            },
+            {
+              "analyzer_id": "static_patterns_prompt_injection",
+              "status": "completed",
+              "planned_work": 3,
+              "completed": 3,
+              "partial": 0,
+              "skipped": 0,
+              "failed": 0,
+              "unaccounted": 0
+            },
+            {
+              "analyzer_id": "static_patterns_rogue_agent",
+              "status": "completed",
+              "planned_work": 3,
+              "completed": 3,
+              "partial": 0,
+              "skipped": 0,
+              "failed": 0,
+              "unaccounted": 0
+            },
+            {
+              "analyzer_id": "static_patterns_ssrf",
+              "status": "completed",
+              "planned_work": 3,
+              "completed": 3,
+              "partial": 0,
+              "skipped": 0,
+              "failed": 0,
+              "unaccounted": 0
+            },
+            {
+              "analyzer_id": "static_patterns_supply_chain",
+              "status": "completed",
+              "planned_work": 3,
+              "completed": 3,
+              "partial": 0,
+              "skipped": 0,
+              "failed": 0,
+              "unaccounted": 0
+            },
+            {
+              "analyzer_id": "static_patterns_system_prompt_leakage",
+              "status": "completed",
+              "planned_work": 3,
+              "completed": 3,
+              "partial": 0,
+              "skipped": 0,
+              "failed": 0,
+              "unaccounted": 0
+            },
+            {
+              "analyzer_id": "static_patterns_tool_misuse",
+              "status": "completed",
+              "planned_work": 3,
+              "completed": 3,
+              "partial": 0,
+              "skipped": 0,
+              "failed": 0,
+              "unaccounted": 0
+            },
+            {
+              "analyzer_id": "static_yara",
+              "status": "completed",
+              "planned_work": 3,
+              "completed": 3,
+              "partial": 0,
+              "skipped": 0,
+              "failed": 0,
+              "unaccounted": 0
+            }
+          ],
+          "references": [
+            {
+              "source_path": "SKILL.md",
+              "line": 6,
+              "column": 3,
+              "evidence": "memory/tmp) + WORKSPACE.md rules + multi-agent config safety (config.patch,",
+              "target_path": null,
+              "status": "missing",
+              "disposition": "partial"
+            },
+            {
+              "source_path": "SKILL.md",
+              "line": 7,
+              "column": 64,
+              "evidence": "never config.apply) + memory log. Use when an agent enters a new/empty",
+              "target_path": null,
+              "status": "missing",
+              "disposition": "partial"
+            },
+            {
+              "source_path": "SKILL.md",
+              "line": 40,
+              "column": 4,
+              "evidence": "- `WORKSPACE.md` — 目录管理规则（持久化规范，重启后依然生效）",
+              "target_path": "templates/WORKSPACE.md",
+              "status": "resolved",
+              "disposition": "analyzed"
+            },
+            {
+              "source_path": "SKILL.md",
+              "line": 53,
+              "column": 25,
+              "evidence": "mkdir -p projects tasks outputs/knowledge scripts memory tmp",
+              "target_path": null,
+              "status": "missing",
+              "disposition": "partial"
+            },
+            {
+              "source_path": "SKILL.md",
+              "line": 60,
+              "column": 10,
+              "evidence": "如果根目录没有 `WORKSPACE.md`，读取本 skill 的 `templates/WORKSPACE.md` 并写入根目录。",
+              "target_path": "templates/WORKSPACE.md",
+              "status": "resolved",
+              "disposition": "analyzed"
+            },
+            {
+              "source_path": "SKILL.md",
+              "line": 60,
+              "column": 37,
+              "evidence": "如果根目录没有 `WORKSPACE.md`，读取本 skill 的 `templates/WORKSPACE.md` 并写入根目录。",
+              "target_path": "templates/WORKSPACE.md",
+              "status": "resolved",
+              "disposition": "analyzed"
+            },
+            {
+              "source_path": "SKILL.md",
+              "line": 82,
+              "column": 31,
+              "evidence": "> **铁律 #3 — 配置修改安全：** 改配置一律用 `config.patch`（部分合并，只动指定字段）；**禁止使用 `config.apply`**（全量替换：会用旧配置快照整份写回，抹掉其他 agent 的修改）。多 agent 共享同一份 openclaw.json，apply = 谁后写谁赢。",
+              "target_path": null,
+              "status": "missing",
+              "disposition": "partial"
+            },
+            {
+              "source_path": "SKILL.md",
+              "line": 82,
+              "column": 66,
+              "evidence": "> **铁律 #3 — 配置修改安全：** 改配置一律用 `config.patch`（部分合并，只动指定字段）；**禁止使用 `config.apply`**（全量替换：会用旧配置快照整份写回，抹掉其他 agent 的修改）。多 agent 共享同一份 openclaw.json，apply = 谁后写谁赢。",
+              "target_path": null,
+              "status": "missing",
+              "disposition": "partial"
+            },
+            {
+              "source_path": "SKILL.md",
+              "line": 86,
+              "column": 9,
+              "evidence": "若根目录存在 `AGENTS.md`，执行以下两项持久化（若 AGENTS.md 不存在则跳过，或随工作区模板一并创建）：",
+              "target_path": null,
+              "status": "missing",
+              "disposition": "partial"
+            },
+            {
+              "source_path": "SKILL.md",
+              "line": 92,
+              "column": 22,
+              "evidence": "即：agent 每次会话启动时，先读取 `WORKSPACE.md`（目录规则），再开始干活。",
+              "target_path": "templates/WORKSPACE.md",
+              "status": "resolved",
+              "disposition": "analyzed"
+            },
+            {
+              "source_path": "SKILL.md",
+              "line": 94,
+              "column": 50,
+              "evidence": "**② 配置修改规范（多 agent 场景）：** 检查是否已包含「配置修改规范」；没有则追加 `templates/AGENTS-config-safety.md` 的内容。",
+              "target_path": "templates/AGENTS-config-safety.md",
+              "status": "resolved",
+              "disposition": "analyzed"
+            },
+            {
+              "source_path": "SKILL.md",
+              "line": 100,
+              "column": 25,
+              "evidence": "在 `memory/` 下写入一条初始化记录（`memory/YYYY-MM-DD.md` 追加）：",
+              "target_path": null,
+              "status": "missing",
+              "disposition": "partial"
+            }
+          ],
+          "limitations": [],
+          "findings_before_filtering": 3,
+          "findings_after_filtering": 3
+        }
+      }
+    }
+  },
+  "signature": {
+    "status": "unsigned"
+  }
+}

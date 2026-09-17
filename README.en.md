@@ -24,9 +24,9 @@ This skill solves it all in one go: **directory structure + persistent rules + c
 ## Features
 
 - 🗂️ Standard directory structure: `projects/` `tasks/` `outputs/` `knowledge/` `scripts/` `memory/` `tmp/`
-- 📜 Persistent WORKSPACE.md rules: directory management conventions that survive restarts
+- 📜 WORKSPACE.md rules: directory conventions that survive restarts — **yours to own**; the skill shows the content first and never overwrites an existing file
 - 🛡️ Multi-agent config safety: `config.patch` only — `config.apply` is forbidden to avoid overwriting others' changes
-- ⚖️ **Skill path-conflict arbitration**: if another skill's conventions conflict with WORKSPACE.md output paths, the workspace rules win — the executing agent translates the paths (e.g. `~/Downloads/research/<topic>` → `tasks/<topic>/`). Install as many skills as you like, nothing gets messy.
+- ⚖️ **Unified file placement**: when another skill's output path clashes with WORKSPACE.md, the executing agent maps the output into the workspace and notes the difference (e.g. `~/Downloads/research/<topic>` → `tasks/<topic>/`) — while the skill's own safety rules, licence and workflow stay authoritative, and unresolvable conflicts go back to you.
 
 ## Install
 
@@ -44,8 +44,8 @@ git clone https://github.com/dtsola/xiaoyaoclaw-workspace-initializer
 1. Put the skill in your OpenClaw skills directory
 2. When entering (or resetting) a workspace, your agent will automatically:
    - Create `projects/ tasks/ outputs/ knowledge/ scripts/ memory/ tmp/`
-   - Write the `WORKSPACE.md` directory rules (persistent across restarts)
-   - Detect multi-agent setups and persist the "config.patch ✅ / config.apply ❌" safety rules into `AGENTS.md`
+   - Write the `WORKSPACE.md` directory rules (only if missing; you approve the content first)
+   - Detect multi-agent setups and propose the "config.patch ✅ / config.apply ❌" rules for `AGENTS.md` (diff first, written only with your approval)
    - Log the initialization into `memory/`
 
 ## 🚀 Quick Start (3 steps, 10 minutes)
@@ -64,7 +64,7 @@ Tell your agent:
 
 > Initialize your workspace using xiaoyaoclaw-workspace-initializer
 
-It will automatically: detect missing directories → create `projects/ tasks/ outputs/ knowledge/ scripts/ memory/ tmp/` → write `WORKSPACE.md` → persist the "Read WORKSPACE.md" startup rule and config-safety rules into `AGENTS.md` → log the initialization:
+It will first show a diff list and wait for your confirmation (what will be created, what will not be touched). After that: create the missing directories → write `WORKSPACE.md` → propose the "Read WORKSPACE.md" startup rule and the config-safety rules as a patch for your approval before touching `AGENTS.md` → log the initialization:
 
 ![Step 2 - running initialization](assets/quickstart-step2-init-workspace.png)
 
